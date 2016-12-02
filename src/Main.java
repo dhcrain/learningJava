@@ -7,11 +7,11 @@ public class Main {
         String word = console.readLine("Enter a word: ");
         String lettersOnly = word.replaceAll("[\\\\W\\s]|_","");
         String reverseLetters = new StringBuilder(lettersOnly).reverse().toString();
-
-        if (lettersOnly.equalsIgnoreCase(reverseLetters)) {
-            console.printf("%s is a Palindrome", word);
+        boolean palindrome = lettersOnly.equalsIgnoreCase(reverseLetters);
+        if (palindrome) {
+            console.printf("%s is a Palindrome\n", word);
         } else {
-            console.printf("%s is NOT a Palindrome", word);
+            console.printf("%s is NOT a Palindrome\n", word);
         }
     }
 }
