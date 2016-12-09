@@ -1,6 +1,6 @@
 import java.io.Console;
 
-public class Main {
+public class Palindrome {
 
     public static void main(String[] args) {
         Console console = System.console();
