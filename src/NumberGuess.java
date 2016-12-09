@@ -13,6 +13,7 @@ public class NumberGuess {
         NumberGame numberGame = new NumberGame();
         System.out.print(numberGame.randomNumber);
         Prompter prompter = new Prompter(numberGame);
+        prompter.play();
 //
 
 //

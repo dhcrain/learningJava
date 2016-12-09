@@ -11,10 +11,14 @@ public class Prompter {
         }
 
         public void play() {
-            while (mGame.getRemainingGuesses() != mGame.randomNumber && mGame.getRemainingGuesses() > 0) {
-                System.out.printf("You have %s guesses to guess a number between %s and %s\n\n", mGame.MAX_GUESSES, mGame.MIN, mGame.MAX);
+            System.out.printf("You have %s guesses to guess a number between %s and %s\n\n", mGame.MAX_GUESSES, mGame.MIN, mGame.MAX);
+            while (mGame.getRemainingGuesses() > 0) {
                 displayProgress();
-                promptForGuess();
+                boolean isWinner = promptForGuess();
+                if (isWinner) {
+                    System.out.print("You WIN!!\n");
+                    break;
+                }
             }
         }
 
@@ -22,10 +26,10 @@ public class Prompter {
             Scanner scanner = new Scanner(System.in);
             System.out.print("What is your guess?  ");
             String guessStr = scanner.next();
-            return mGame.applyGuess(guessStr);
+            return mGame.checkGuess(guessStr);
         }
 
         public void displayProgress() {
-            System.out.printf("You have %d tries left to solve: \n", mGame.getRemainingGuesses());
+            System.out.printf("\nYou have %d tries left to guess the number. \n", mGame.getRemainingGuesses());
         }
 }
