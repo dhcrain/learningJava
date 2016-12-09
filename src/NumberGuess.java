@@ -7,7 +7,7 @@
 public class NumberGuess {
     public static void main (String[] args) {
         NumberGame numberGame = new NumberGame();
-        System.out.print(numberGame.randomNumber);
+        // System.out.print(numberGame.randomNumber);
         Prompter prompter = new Prompter(numberGame);
         prompter.play();
     }
