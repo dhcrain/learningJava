@@ -1,7 +1,5 @@
 import java.util.Random;
 
-import static java.lang.Math.abs;
-
 /**
  * Created by daviscrain on 12/7/16.
  */
@@ -13,7 +11,6 @@ public class NumberGame {
     public static final int MIN = 1;
     private int guesses;
     public int randomNumber;
-    private String guess;
 
     public NumberGame() {
         Random random = new Random();
