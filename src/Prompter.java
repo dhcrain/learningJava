@@ -19,6 +19,9 @@ public class Prompter {
                     System.out.print("You WIN!!\n");
                     break;
                 }
+                if (mGame.getRemainingGuesses() == 0) {
+                    System.out.printf("Sorry you lost the number was %d\n", mGame.getmRandomNumber());
+                }
             }
         }
 
