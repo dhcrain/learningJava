@@ -18,21 +18,26 @@ public class Prompter {
                 if (isWinner) {
                     System.out.print("You WIN!!\n");
                     break;
-                }
-                if (mGame.getRemainingGuesses() == 0) {
-                    System.out.printf("Sorry you lost the number was %d\n", mGame.getmRandomNumber());
+                } else if (mGame.getRemainingGuesses() == 0) {
+                    System.out.printf("Sorry you lost, the number was %d\n", mGame.getRandomNumber());
                 }
             }
         }
 
-        public boolean promptForGuess() {
+        private boolean promptForGuess() {
             Scanner scanner = new Scanner(System.in);
             System.out.print("What is your guess?  ");
             String guessStr = scanner.next();
-            return mGame.checkGuess(guessStr);
+            if (mGame.inGuessListCheck(guessStr)) {
+                System.out.println("You already guessed that number, guess again");
+            } else {
+                mGame.addToGuessList(guessStr);
+                return mGame.checkGuess(guessStr);
+            }
+            return false;
         }
 
-        public void displayProgress() {
+        private void displayProgress() {
             System.out.printf("\nYou have %d tries left to guess the number. \n", mGame.getRemainingGuesses());
         }
 }
